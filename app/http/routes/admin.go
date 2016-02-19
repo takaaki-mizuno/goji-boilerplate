@@ -7,7 +7,10 @@ import (
 	admin_controller "github.com/takaaki-mizuno/goji-boilerplate/app/http/controllers/admin"
 )
 
-func AdminRoutes(mainMux *web.Mux) {
-	goji.Handle("/admin/*", mainMux)
-	mainMux.Get("/admin/", admin_controller.Index_get_handler)
+func AdminRoutes() {
+
+	adminMux := web.New()
+	goji.Handle("/admin/*", adminMux)
+	adminMux.Get("/admin/", admin_controller.Index_get_handler)
+
 }
